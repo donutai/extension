@@ -1,3 +1,6 @@
+# exclude submodule extensions/vscode/models 
+extensions/vscode/models
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -1,0 +1,3 @@
+[submodule "extensions/vscode/models"]
+	path = extensions/vscode/models
+	url = https://github.com/donutai/all-MiniLM-L6-v2
