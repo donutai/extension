@@ -1,6 +1,5 @@
 # Changelog
 
-Separate changelogs are kept for each extension:
+You can find the changelog here:
 
 - [VS Code Extension](./extensions/vscode/CHANGELOG.md)
-- [JetBrains Extension](./extensions/intellij/CHANGELOG.md)
