@@ -58,20 +58,20 @@ const exe = os === "win32" ? ".exe" : "";
   }
 
   // Install node_modules //
-  execCmdSync("npm install");
-  console.log("[info] npm install in extensions/vscode completed");
+  execCmdSync("bun install");
+  console.log("[info] bun install in extensions/vscode completed");
 
   process.chdir("../../gui");
 
-  execCmdSync("npm install");
-  console.log("[info] npm install in gui completed");
+  //execCmdSync("bun install");
+  //console.log("[info] bun install in gui completed");
 
   if (ghAction()) {
-    execCmdSync("npm run build");
+    execCmdSync("bun run build");
   }
 
   // Copy over the dist folder to the JetBrains extension //
-  const intellijExtensionWebviewPath = path.join(
+  /*const intellijExtensionWebviewPath = path.join(
     "..",
     "extensions",
     "intellij",
@@ -112,7 +112,7 @@ const exe = os === "win32" ? ".exe" : "";
     path.join(intellijExtensionWebviewPath, "onigasm.wasm"),
   );
 
-  console.log("[info] Copied gui build to JetBrains extension");
+  console.log("[info] Copied gui build to JetBrains extension");*/
 
   // Then copy over the dist folder to the VSCode extension //
   const vscodeGuiPath = path.join("../extensions/vscode/gui");
@@ -282,7 +282,7 @@ const exe = os === "win32" ? ".exe" : "";
     toCopy,
   ) {
     console.log(`Copying ${packageName} to ${toCopy}`);
-    // This is a way to install only one package without npm trying to install all the dependencies
+    // This is a way to install only one package without bun trying to install all the dependencies
     // Create a temporary directory for installing the package
     const adjustedName = packageName.replace(/@/g, "").replace("/", "-");
 
@@ -300,7 +300,7 @@ const exe = os === "win32" ? ".exe" : "";
       process.chdir(tempDir);
 
       // Initialize a new package.json and install the package
-      execCmdSync(`npm init -y && npm i -f ${packageName} --no-save`);
+      execCmdSync(`bun init -y && bun i -f ${packageName} --no-save`);
 
       console.log(
         `Contents of: ${packageName}`,
@@ -387,8 +387,8 @@ const exe = os === "win32" ? ".exe" : "";
     execCmdSync(`cd node_modules/@esbuild && unzip esbuild.zip`);
     fs.unlinkSync("node_modules/@esbuild/esbuild.zip");
   } else {
-    // Download esbuild from npm in tmp and copy over
-    console.log("npm installing esbuild binary");
+    // Download esbuild from bun in tmp and copy over
+    console.log("bun installing esbuild binary");
     await installNodeModuleInTempDirAndCopyToCurrent(
       "esbuild@0.17.19",
       "@esbuild",
