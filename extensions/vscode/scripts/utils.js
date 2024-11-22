@@ -24,7 +24,7 @@ function copyConfigSchema() {
   fs.writeFileSync("continue_rc_schema.json", JSON.stringify(schema, null, 2));
 
   // Copy config schemas to intellij
-  fs.copyFileSync(
+  /*fs.copyFileSync(
     "config_schema.json",
     path.join(
       "..",
@@ -45,7 +45,7 @@ function copyConfigSchema() {
       "resources",
       "continue_rc_schema.json",
     ),
-  );
+  );*/
 }
 
 function copyTokenizers() {
@@ -88,7 +88,7 @@ async function buildGui(isGhAction) {
   }
 
   // Copy over the dist folder to the JetBrains extension //
-  const intellijExtensionWebviewPath = path.join(
+  /*const intellijExtensionWebviewPath = path.join(
     "..",
     "extensions",
     "intellij",
@@ -129,7 +129,7 @@ async function buildGui(isGhAction) {
     path.join(intellijExtensionWebviewPath, "onigasm.wasm"),
   );
 
-  console.log("[info] Copied gui build to JetBrains extension");
+  console.log("[info] Copied gui build to JetBrains extension");*/
 
   // Then copy over the dist folder to the VSCode extension //
   const vscodeGuiPath = path.join("../extensions/vscode/gui");

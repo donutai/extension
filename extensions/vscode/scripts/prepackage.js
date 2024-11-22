@@ -507,7 +507,8 @@ const exe = os === "win32" ? ".exe" : "";
     "models/all-MiniLM-L6-v2/onnx/model_quantized.onnx",
 
     // node_modules (it's a bit confusing why this is necessary)
-    `node_modules/@vscode/ripgrep/bin/rg${exe}`,
+    // FIXME: switchout with prebuilt rigrep
+    //`node_modules/@vscode/ripgrep/bin/rg${exe}`,
 
     // out directory (where the extension.js lives)
     // "out/extension.js", This is generated afterward by vsce
@@ -519,7 +520,7 @@ const exe = os === "win32" ? ".exe" : "";
     "out/build/Release/node_sqlite3.node",
 
     // out/node_modules (to be accessed by extension.js)
-    `out/node_modules/@vscode/ripgrep/bin/rg${exe}`,
+    //`out/node_modules/@vscode/ripgrep/bin/rg${exe}`,
     `out/node_modules/@esbuild/${target === "win32-arm64"
       ? "esbuild.exe"
       : target === "win32-x64"
