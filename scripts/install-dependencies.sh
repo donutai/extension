@@ -14,7 +14,13 @@ pushd core
 export PUPPETEER_SKIP_DOWNLOAD='true'
 npm install
 npm link
+popd
 
+
+# temporary workaround for the dependency between gui and extension
+pushd extensions/vscode
+bun install
+bun link @continuedev/core
 popd
 
 echo "Installing GUI extension dependencies..."
@@ -40,11 +46,5 @@ echo "Installing binary dependencies..."
 pushd binary
 npm install
 npm run build
-
-popd
-
-echo "Installing docs dependencies..."
-pushd docs
-npm install
 
 popd

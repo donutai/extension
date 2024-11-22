@@ -9,6 +9,8 @@
     "lint": "eslint . --ext ts",
     "lint:fix": "eslint . --ext ts --fix"
   },
+  "main": "core.ts",
+  "types": "index.d.ts",
   "type": "module",
   "author": "Continue Dev, Inc",
   "license": "Apache-2.0",
